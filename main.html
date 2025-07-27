@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABDUL RAHMAN</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body id="bod">
+    <!-- <button id="cv">DOWNLOAD CV</button> -->
+    <img id="profile" src="pfp.png" alt="Profile Photo">
+    <h1 id="intro1">Hey! I'm Abdul Rahman</h1>
+    
+    <p id="intro2">An undergraduate engineering student with a strong interest in Web Development and Artificial Intelligence.
+I specialize in building responsive, efficient web applications and exploring the practical applications of AI technologies.</p>
+    <div id="follow">
+    <button id="linkedin" onclick="location.href='http://www.linkedin.com/in/mohammed-abdul-rahman-4ab7a7343'"></button>
+    <button id="github" onclick="location.href=`https://github.com/rahman3112`"></button>
+    <button id="mail"></button>
+    </div>
+    <button id="explore" onclick="scrolldown()">EXPLORE SKILLS AND PROJECTS</button>
+    <div id="skills">
+  <div class="skill"><h2>MERN</h2></div>
+  <div class="skill"><h2>C++</h2></div>
+  <div class="skill"><h2>JAVA</h2></div>
+  <div class="skill"><h2>ML</h2></div>
+  <div class="skill"><h2>JS</h2></div>
+  <div class="skill"><h2>SQL</h2></div>
+  <div class="skill"><h2>OS</h2></div>
+  <div class="skill"><h2>PYTHON</h2></div>
+  <div class="skill"><h2>C</h2></div>
+  <div class="skill"><h2>REACT</h2></div>
+</div>
+
+<div id="projects">
+    <h1 class="section-heading">PROJECTS</h1>
+    <div class="project" ><h2>FINANCE GPT</h2><p>Financial GPT is an AI-powered system that automates financial document processing, including classification, summarization, finance-specific Q&A, and PII detection from text and cheque images. It leverages federated learning, Flutter Hooks, API integration, and is deployed on AWS.</p><button onclick="location.href=`https://github.com/rahman3112/finance_gpt.git`" id="git1"></button></div>
+    <div class="project" style="padding-left: 20px;"><h2>AMBULANCE GUIDANCE SYSTEM</h2><p>Ambulance Guidance System is a real-time tracking solution that helps ambulances find the fastest route by dynamically connecting with the nearest traffic police. It alerts officers when an ambulance enters a predefined radius, enabling timely traffic clearance and ensuring swift emergency response.</p><button onclick="location.href=`https://github.com/rahman3112/Ambulance.git`" style="top: -10px;" id="git1"></button></div>
+    <div class="project"><h2>MEETZ</h2><p>MeetPoint is a smart web app that helps friends plan meetups effortlessly. Users can pin a location on the map, and others can vote “Yes” or “No” in real-time. It also suggests popular and nearby spots, making it easy to explore, decide, and connect at the perfect place.</p><button  style="position: relative;top: 10px;" onclick="location.href=`https://github.com/rahman3112/meetz.git`" style="top: -10px;" id="git1"></button><button style="position: relative;left: 20px;" onclick="location.href=`https://meetz-five.vercel.app/`" id="git2"></button></div>
+</div>
+<h1 id="co">CONTACT ME</h1>
+<form id="contact">
+    <input id="email" type="email" name="email" placeholder="Email.." required/>
+    <textarea id="message" name="message" placeholder="Your message..." required></textarea>
+    <button id="sub" type="submit">Send</button>
+</form>
+    
+</div>
+</body>
+</html>
+<script>
+    document.getElementById("contact").addEventListener("submit",async (e)=>{
+        e.preventDefault()
+        const form = e.target
+        const data={
+            email:form.email.value,
+            msg:form.message.value
+        }
+
+        const res = await fetch("http://localhost:5000/send",{
+            method:"POST",
+            headers:{"Content-type": "application/json"},
+            body: JSON.stringify(data)
+        })
+        
+        const result = await res.json()
+        alert(result.message)
+    })
+
+    function scrolldown(){
+        document.getElementById("skills").scrollIntoView({
+            behavior:"smooth"
+        })
+    }
+
+
+</script>
