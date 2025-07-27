@@ -57,7 +57,7 @@ I specialize in building responsive, efficient web applications and exploring th
             msg:form.message.value
         }
 
-        const res = await fetch("http://localhost:5000/send",{
+        const res = await fetch("https://port-back-wgn5.onrender.com/send",{
             method:"POST",
             headers:{"Content-type": "application/json"},
             body: JSON.stringify(data)
